@@ -4,7 +4,7 @@ exec --no-startup-id dex-autostart --autostart --environment i3
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 floating_modifier $mod
-bindsym $mod+Return exec terminator
+bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+q kill
 
 bindsym $mod+Left focus left
@@ -120,4 +120,7 @@ exec --no-startup-id picom --config ~/.config/i3/picom.conf
 
 # Custom window management
 for_window [class="java-lang-Thread"] floating enable
+
+# Screenshots
+bindsym Print exec maim -s -u | xclip -selection clipboard -t image/png -i
 
