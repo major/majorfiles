@@ -4,8 +4,7 @@ exec --no-startup-id dex-autostart --autostart --environment i3
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 floating_modifier $mod
-bindsym $mod+Return exec terminator -x toolbox enter
-bindsym $mod+Shift+Return exec terminator -x bash
+bindsym $mod+Return exec terminator
 bindsym $mod+Shift+q kill
 
 bindsym $mod+Left focus left
