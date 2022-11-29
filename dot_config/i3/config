@@ -84,8 +84,9 @@ bar {
   colors {
     background #000000
     statusline #FFFFFF
-    separator  #666666
+    separator  #000000
   }
+  separator_symbol "|"
   status_command i3status -c ~/.config/i3/i3status.conf
 }
 
