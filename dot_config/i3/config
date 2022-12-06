@@ -4,7 +4,11 @@ exec --no-startup-id dex-autostart --autostart --environment i3
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 floating_modifier $mod
-bindsym $mod+Return exec alacritty
+
+# Terminal for toolbox and base OS
+bindsym $mod+Return exec alacritty -e toolbox run zsh
+bindsym $mod+Shift+Return exec alacritty 
+
 bindsym $mod+Shift+q kill
 
 bindsym $mod+Left focus left
@@ -125,3 +129,7 @@ for_window [class="java-lang-Thread"] floating enable
 # Screenshots
 bindsym Print exec maim -s -u | xclip -selection clipboard -t image/png -i
 
+# Volume
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
