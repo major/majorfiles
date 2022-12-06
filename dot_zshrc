@@ -21,6 +21,3 @@ autoload -U compinit; compinit
 
 # use the ssh-agent started by systemd.
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/keyring/ssh"
-
-# Run hugo via container
-alias hugo="podman run --rm -it -p 1313:1313 -v $(pwd):/src:z docker.io/klakegg/hugo:latest "
