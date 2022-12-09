@@ -9,7 +9,8 @@ sudo rpm-ostree install -y \
     picom playerctl rofi rofimoji Thunar xclip xinput vorbis-tools
 
 # Prepare the Zulu 11 JDK for Thinkorswim
-sudo rpm-ostree install -y https://cdn.azul.com/zulu/bin/zulu-repo-1.0.0-1.noarch.rpm
+curl --output /tmp/zulu-repo.rpm https://cdn.azul.com/zulu/bin/zulu-repo-1.0.0-1.noarch.rpm
+sudo rpm-ostree install -y -A /tmp/zulu-repo.rpm 
 sudo rpm-ostree install -y zulu11-jdk
 
 # Install regular OpenJDK 11
@@ -17,7 +18,3 @@ sudo rpm-ostree install -y java-11-openjdk
 
 # Create Fedora toolbox matching Fedora version
 toolbox -y create --distro fedora --release f${VERSION_ID}
-
-# Create Fedora rawhide toolbox
-toolbox -y create --distro fedora --release rawhide
-
