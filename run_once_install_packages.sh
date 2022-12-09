@@ -1,35 +1,35 @@
 #!/bin/bash
 # Install packages.
 
-# Skip this entire script if we're running inside the toolbox container.
-if [ ! -x /usr/bin/rpm-ostree ]; then
-    echo "🧰 Skipping chezmoi package install since we're in the toolbox"
-    exit 0
-fi
+package_add=(
+  alacritty
+  bat
+  blueman
+  btop
+  dnf-automatic
+  fedora-packager
+  fzf
+  git
+  git-delta
+  krb5-workstation
+  lxappearance
+  lxpolkit
+  pasystray
+  playerctl
+  ripgrep
+  rofi
+  rofimoji
+  the_silver_searcher
+  vim
+  vorbis-tools
+  zsh
+)
 
-source /etc/os-release
+package_del=(
+  volumeicon
+)
 
-sudo rpm-ostree install -y \
-    alacritty arandr blueman brightnessctl dmenu dunst feh i3 i3-config-fedora i3lock \
-    i3status light lxappearance maim network-manager-applet pasystray pavucontrol \
-    picom playerctl rofi rofimoji Thunar xclip xinput vorbis-tools || true
+sudo dnf -y install $(IFS=' '; echo "${package_add[*]}")
+sudo dnf -y remove $(IFS=' '; echo "${package_del[*]}")
 
-# Prepare the Zulu 11 JDK for Thinkorswim
-if ! rpm-ostree status | grep zulu-repo > /dev/null; then
-    curl -sL --output /tmp/zulu-repo.rpm https://cdn.azul.com/zulu/bin/zulu-repo-1.0.0-1.noarch.rpm
-    sudo rpm-ostree install -y -A /tmp/zulu-repo.rpm 
-    sudo rpm-ostree install -y zulu11-jdk
-fi
-
-# Install regular OpenJDK 11
-if ! rpm-ostree status | grep java-11-openjdk > /dev/null; then
-    sudo rpm-ostree install -y java-11-openjdk
-fi
-
-# Create Fedora toolbox matching Fedora version
-if ! toolbox list | grep fedora-toolbox-${VERSION_ID} > /dev/null; then
-    toolbox -y create --distro fedora --release f${VERSION_ID}
-fi
-
-# Prepare toolbox
-toolbox run sudo dnf -y install bat btop fzf git-delta htop ripgrep the_silver_searcher vim zsh
+sudo systemctl enable --now dnf-automatic-download.timer
