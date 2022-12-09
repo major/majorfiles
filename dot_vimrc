@@ -29,6 +29,7 @@ colorscheme monokai
 :augroup END
 
 " Spaces instead of tabs
+set tabstop=4
 set expandtab
 
 " Toggle spell check
