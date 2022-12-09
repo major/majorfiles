@@ -129,10 +129,16 @@ exec_always feh --bg-scale ~/Pictures/i3-wallpaper.jpg
 exec --no-startup-id picom --config ~/.config/i3/picom.conf
 
 # Custom window management
-for_window [class="java-lang-Thread"] floating enable
+for_window [class="java-lang-Thread"] floating enable, move container to workspace 6
 
 # Screenshots
 bindsym Print exec maim -s -u | xclip -selection clipboard -t image/png -i
+
+# Media keys
+# Ducky kb setup: https://major.io/p/ducky-keyboard-multimedia-keys/
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
 
 # Volume
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
