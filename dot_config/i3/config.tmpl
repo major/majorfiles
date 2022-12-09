@@ -138,6 +138,9 @@ for_window [class="thunderbird-beta"] move container to workspace 3
 # Screenshots
 bindsym Print exec maim -s -u | xclip -selection clipboard -t image/png -i
 
+# Auto-switch to bluetooth headset
+exec_always --no-startup-id pactl load-module module-switch-on-connect
+
 # Media keys
 # Ducky kb setup: https://major.io/p/ducky-keyboard-multimedia-keys/
 bindsym XF86AudioPlay exec playerctl play-pause
