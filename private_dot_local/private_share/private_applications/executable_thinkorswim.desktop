@@ -2,6 +2,6 @@
 [Desktop Entry]
 Type=Application
 Name=thinkorswim
-Exec="/var/home/major/thinkorswim/thinkorswim"  %U
-Icon=/var/home/major/thinkorswim/.install4j/thinkorswim.png
+Exec="/home/major/thinkorswim/thinkorswim"  %U
+Icon=/home/major/thinkorswim/.install4j/thinkorswim.png
 StartupWMClass=install4j-com-devexperts-jnlp-Launcher
