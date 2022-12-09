@@ -22,6 +22,8 @@ package_add=(
   the_silver_searcher
   vim
   vorbis-tools
+  xprop
+  xwininfo
   zsh
 )
 
