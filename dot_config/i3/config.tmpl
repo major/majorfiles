@@ -90,12 +90,13 @@ bar {
     statusline #FFFFFF
     separator  #000000
   }
-  font pango:Hack, FontAwesome 9
   separator_symbol "|"
   status_command i3status -c ~/.config/i3/i3status.conf
   {{ if eq .chezmoi.hostname "amdbox" }}
   tray_output DisplayPort-0
+  font pango:Hack, FontAwesome 10
   {{ else if eq .chezmoi.hostname "nano" }}
+  font pango:Hack, FontAwesome 9
   tray_output eDP-1
   {{ end }}
 }
