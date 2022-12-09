@@ -1,10 +1,15 @@
 #!/bin/bash
 # Install packages.
 
+# Skip this entire script if we're running inside the toolbox container.
+if ! -x /usr/bin/rpm-ostree; then
+    exit 0
+fi
+
 source /etc/os-release
 
 sudo rpm-ostree install -y \
-    alacritty blueman brightnessctl dmenu dunst feh i3 i3-config-fedora i3lock \
+    alacritty arandr blueman brightnessctl dmenu dunst feh i3 i3-config-fedora i3lock \
     i3status light lxappearance maim network-manager-applet pasystray pavucontrol \
     picom playerctl rofi rofimoji Thunar xclip xinput vorbis-tools || true
 
@@ -26,4 +31,4 @@ if ! toolbox list | grep fedora-toolbox-${VERSION_ID} > /dev/null; then
 fi
 
 # Prepare toolbox
-toolbox run sudo dnf -y install bat fzf git-delta ripgrep the_silver_searcher vim zsh
+toolbox run sudo dnf -y install bat btop fzf git-delta htop ripgrep the_silver_searcher vim zsh
