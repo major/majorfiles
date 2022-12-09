@@ -92,6 +92,11 @@ bar {
   }
   separator_symbol "|"
   status_command i3status -c ~/.config/i3/i3status.conf
+  {{ if eq .chezmoi.hostname "amdbox" }}
+  tray_output DisplayPort-0
+  {{ else if eq .chezmoi.hostname "nano" }}
+  tray_output eDP-1
+  {{ end }}
 }
 
 # Handle backlight.
