@@ -1,0 +1,13 @@
+#!/bin/bash
+# Get power consumption/generation from solar panels.
+
+WEATHER_FILE=/tmp/weather_cache.txt
+WEATHER_TEMP_FILE=/tmp/weather_cache.tmp
+
+if [ ! -f $WEATHER_FILE ]; then
+    echo "⛅🤔" > $WEATHER_FILE
+fi
+
+if curl -sL --connect-timeout 5 'wttr.in/KSAT?format=%C+%c+%t+(%f)+%h+%P+%m+UV%u+%w' > $WEATHER_TEMP_FILE; then
+    mv -f $WEATHER_TEMP_FILE $WEATHER_FILE
+fi
