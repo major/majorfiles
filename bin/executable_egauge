@@ -1,0 +1,21 @@
+#!/usr/bin/env python
+import os
+import xml.etree.ElementTree as ET
+
+import requests
+
+egauge_url = "http://192.168.10.100/cgi-bin/egauge?inst"
+egauge_xml = requests.get(egauge_url).content
+
+root = ET.fromstring(egauge_xml)
+
+for elem in root.findall('./r[@n="Grid"]/i'):
+    grid_power = int(elem.text)
+
+for elem in root.findall('./r[@n="Solar"]/i'):
+    solar_power = int(elem.text)
+
+output = f" {abs(solar_power) - grid_power}W  {solar_power}W"
+
+print(output)
+

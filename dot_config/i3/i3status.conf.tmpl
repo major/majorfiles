@@ -12,6 +12,9 @@ general {
 }
 
 order += "read_file weather"
+{{ if eq .chezmoi.hostname "amdbox" }}
+order += "read_file solar"
+{{ end }}
 {{ if eq .chezmoi.hostname "nano" }}
 order += "battery all"
 {{ end }}
@@ -24,6 +27,11 @@ order += "tztime local"
 read_file weather {
 	format = "%content"
 	path = "/tmp/weather_cache.txt"
+}
+
+read_file solar {
+	format = "%content"
+	path = "/tmp/solar_cache.txt"
 }
 
 battery all {

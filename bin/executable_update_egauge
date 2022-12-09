@@ -1,0 +1,13 @@
+#!/bin/bash
+# Get power consumption/generation from solar panels.
+
+SOLAR_FILE=/tmp/solar_cache.txt
+SOLAR_TEMP_FILE=/tmp/solar_cache.tmp
+
+if [ ! -f $SOLAR_FILE ]; then
+    echo "🌞🤔" > $SOLAR_FILE
+fi
+
+if /home/major/bin/egauge > $SOLAR_TEMP_FILE; then
+    mv -f $SOLAR_TEMP_FILE $SOLAR_FILE
+fi

@@ -1,0 +1,11 @@
+[Unit]
+Description=Update solar panels for i3bar
+
+[Timer]
+Persistent=true
+OnBootSec=120
+OnUnitActiveSec=30
+Unit=update-solar.service
+
+[Install]
+WantedBy=timers.target
