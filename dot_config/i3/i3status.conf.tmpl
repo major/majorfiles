@@ -11,7 +11,9 @@ general {
         interval = 5
 }
 
+{{ if eq .chezmoi.hostname "nano" }}
 order += "battery all"
+{{ end }}
 order += "disk /"
 order += "memory"
 order += "tztime berlin"
