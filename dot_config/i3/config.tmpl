@@ -109,7 +109,8 @@ bindsym shift+XF86MonBrightnessDown exec light -U 25
 default_border pixel 1
 default_floating_border pixel 1
 hide_edge_borders smart
-for_window [class = ".*"] border pixel 1  # Electron apps hack
+# Hack for electron apps
+for_window [class = ".*"] border pixel 1
 
 # Lock screen
 bindsym $mod+l exec "i3lock -c 000000"
