@@ -9,7 +9,7 @@ source $ZSH/oh-my-zsh.sh
 export EDITOR=vim
 
 # configure history
-unsetopt share_history
+setopt share_history
 setopt EXTENDED_HISTORY
 setopt HIST_FIND_NO_DUPS
 export HISTTIMEFORMAT="[%F %T] "
