@@ -27,3 +27,9 @@ colorscheme monokai
 :  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
 :  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
 :augroup END
+
+" Spaces instead of tabs
+set expandtab
+
+" Toggle spell check
+:map <F5> :setlocal spell! spelllang=en_us<CR>
