@@ -2,7 +2,8 @@
 # Install packages.
 
 # Skip this entire script if we're running inside the toolbox container.
-if ! -x /usr/bin/rpm-ostree; then
+if [ ! -x /usr/bin/rpm-ostree ]; then
+    echo "🧰 Skipping chezmoi package install since we're in the toolbox"
     exit 0
 fi
 
