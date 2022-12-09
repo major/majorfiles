@@ -1,0 +1,11 @@
+[Unit]
+Description=Update weather for i3bar
+
+[Timer]
+Persistent=true
+OnBootSec=120
+OnUnitActiveSec=900
+Unit=update-weather.service
+
+[Install]
+WantedBy=timers.target

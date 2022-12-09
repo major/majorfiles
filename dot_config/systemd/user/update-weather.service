@@ -1,0 +1,9 @@
+[Unit]
+Description=Script to update weather for i3bar
+
+[Service]
+Type=simple
+ExecStart=%h/bin/update_weather
+
+[Install]
+WantedBy=default.target

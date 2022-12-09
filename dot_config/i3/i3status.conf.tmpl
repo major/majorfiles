@@ -7,17 +7,24 @@
 # If the above line is not correctly displayed, fix your editor first!
 
 general {
-        colors = true
+        colors = false
         interval = 5
 }
 
+order += "read_file weather"
 {{ if eq .chezmoi.hostname "nano" }}
 order += "battery all"
 {{ end }}
 order += "disk /"
 order += "memory"
+order += "volume master"
 order += "tztime berlin"
 order += "tztime local"
+
+read_file weather {
+	format = "%content"
+	path = "/tmp/weather_cache.txt"
+}
 
 battery all {
         last_full_capacity = true
@@ -33,6 +40,14 @@ memory {
         format = "%used"
         threshold_degraded = "1G"
         format_degraded = "MEMORY < %available"
+}
+
+volume master {
+        format = "%devicename: %volume"
+        format_muted = "%devicename: 🔇 (%volume)"
+        device = "default"
+        mixer = "Master"
+        mixer_idx = 0
 }
 
 tztime local {
