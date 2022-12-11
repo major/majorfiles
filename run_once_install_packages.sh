@@ -15,6 +15,7 @@ package_add=(
   lxappearance
   lxpolkit
   pasystray
+  picom
   playerctl
   ripgrep
   rofi
@@ -22,6 +23,7 @@ package_add=(
   the_silver_searcher
   vim
   vorbis-tools
+  xinput
   xprop
   xwininfo
   zsh
@@ -42,10 +44,10 @@ sudo dnf -y install https://cdn.azul.com/zulu/bin/zulu-repo-1.0.0-1.noarch.rpm
 sudo dnf -y install zulu11-jdk
 
 # Set up RPM Fusion
-sudo dnf install \
+sudo dnf -y install \
     https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
     https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
 # Switch to the mesa with AMD acceleration
-sudo dnf swap mesa-va-drivers mesa-va-drivers-freeworld
-sudo dnf swap mesa-vdpau-drivers mesa-vdpau-drivers-freeworld
+sudo dnf -y swap mesa-va-drivers mesa-va-drivers-freeworld
+sudo dnf -y swap mesa-vdpau-drivers mesa-vdpau-drivers-freeworld
