@@ -12,6 +12,7 @@ package_add=(
   git
   git-delta
   krb5-workstation
+  light
   lxappearance
   lxpolkit
   pasystray
