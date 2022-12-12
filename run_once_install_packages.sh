@@ -15,6 +15,7 @@ package_add=(
   light
   lxappearance
   lxpolkit
+  numlockx
   pasystray
   picom
   playerctl
