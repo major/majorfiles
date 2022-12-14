@@ -24,3 +24,7 @@ export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/keyring/ssh"
 
 # ensure gpg works properly in each terminal
 export GPG_TTY="$(tty)"
+
+. <(flux completion zsh)
+. <(kubectl completion zsh)
+. <(kustomize completion zsh)
