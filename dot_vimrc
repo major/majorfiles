@@ -11,10 +11,15 @@ Plug 'dense-analysis/ale'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-vinegar'
+
+" Markdown / blog post writing efficiency 
+Plug 'junegunn/limelight.vim'
+Plug 'godlygeek/tabular'
+Plug 'preservim/vim-markdown'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 call plug#end()
 
 colorscheme monokai
@@ -34,3 +39,6 @@ set expandtab
 
 " Toggle spell check
 :map <F5> :setlocal spell! spelllang=en_us<CR>
+
+" vim-markdown enables folding by default, but I find this confusing
+let g:vim_markdown_folding_disabled = 1
