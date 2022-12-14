@@ -131,8 +131,7 @@ exec_always --no-startup-id feh --bg-scale ~/Pictures/i3-wallpaper.jpg
 exec --no-startup-id picom --config ~/.config/i3/picom.conf
 
 # Custom window management
-for_window [class="java-lang-Thread"] floating enable
-for_window [class="java-lang-Thread"] move container to workspace 6
+for_window [class="java-lang-Thread"] floating enable, move container to workspace 6
 for_window [class="thunderbird-beta"] move container to workspace 3
 
 # Screenshots
