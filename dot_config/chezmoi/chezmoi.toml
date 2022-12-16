@@ -4,3 +4,6 @@ encryption = "age"
 [age]
   identity = "/home/major/chezmoi-keys.txt"
   recipient = "age1rtehslwcgqumnth8kdautgf3vm3h0qkk6tpshad0hgafn6dqjdqq8hfjnm"
+[git]
+  autoCommit = true
+  autoPush = false
