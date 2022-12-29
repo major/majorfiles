@@ -152,6 +152,9 @@ exec_always --no-startup-id numlockx on
 # Enable AltGr/Compose key
 exec_always --no-startup-id "setxkbmap us -variant altgr-intl -option compose:rctrl"
 
+# Run a polkit agent for handling authentication prompts
+exec --no-startup-id lxpolkit
+
 # Volume
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
