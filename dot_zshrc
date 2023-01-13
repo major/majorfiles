@@ -22,5 +22,12 @@ autoload -U compinit; compinit
 # use the ssh-agent started by systemd.
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/keyring/ssh"
 
-# ensure gpg works properly in each terminal
+# ensure gpg works properly in each terminal.
 export GPG_TTY="$(tty)"
+
+# Use awscli via its container.
+alias aws='podman run --rm -ti -v ~/.aws:/root/.aws:z docker.io/amazon/aws-cli $@'
+
+# Speedups.
+export TZ=America/Chicago
+export LC_ALL=C
