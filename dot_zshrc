@@ -33,4 +33,4 @@ alias az='podman run --rm -ti -v ~/.azure:/root/.azure:z mcr.microsoft.com/azure
 
 # Speedups.
 export TZ=America/Chicago
-export LC_ALL=C
+#export LC_ALL=C
