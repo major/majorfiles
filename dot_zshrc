@@ -33,4 +33,6 @@ alias az='podman run --rm -ti -v ~/.azure:/root/.azure:z mcr.microsoft.com/azure
 
 # Speedups.
 export TZ=America/Chicago
+
+# This seems to break emojis in terminals. 🤔 😢
 #export LC_ALL=C
